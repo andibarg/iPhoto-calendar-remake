@@ -1,0 +1,133 @@
+\documentclass{article}
+
+%% ---------------------------------------------
+% User input
+\title{Insert a subtitle or author name}
+
+%% ---------------------------------------------
+% Layout
+\usepackage[paperwidth=270mm, 
+			paperheight=210mm,
+			top=2.3cm,
+			bottom=0cm,
+			left=1.7cm,
+			right=1.22cm
+			]{geometry}
+% Font
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+% Define new font sizes
+\newcommand{\Days}{\fontsize{16.5pt}{0pt}\selectfont}
+\newcommand{\Month}{\fontsize{30pt}{0pt}\selectfont}
+% Color
+\usepackage{xcolor}
+
+
+%% ---------------------------------------------
+% Variables
+\usepackage{datatool}
+% Set the separator between the columns in txt file.
+\DTLsetseparator{ = }	
+% Load txt files with variables
+\DTLloaddb[noheader, keys={key,value}]{vars}{tables/Variables.txt}
+% Define variable commands
+\newcommand{\vars}[1]{\DTLfetch{vars}{key}{#1}{value}}
+
+
+%% ---------------------------------------------
+% Tables
+\usepackage{csvsimple}
+% Centered day titles
+\usepackage{array}
+\newcolumntype{P}[1]{>{\centering\arraybackslash\hspace{-0.232cm}}p{#1}}
+% Table columnwidth
+\newcommand{\cw}{2.985cm}
+% Table height
+\newcommand{\rh}{2.842cm}
+
+
+%% ---------------------------------------------
+% PDF
+\usepackage{pdfpages}
+% Background (lines)
+\usepackage[pages=some]{background}
+\backgroundsetup{
+scale=1,
+color=black,
+opacity=0.5,
+angle=0,
+contents={%
+  \includegraphics[width=\paperwidth,height=\paperheight]{pics/table_bg.pdf}
+  }%
+}
+
+
+%% -------------------------------------------------------------------------------------------------------------------------
+\begin{document}
+\makeatletter
+
+%% ---------------------------------------------
+% Function to print month pics and table
+% #1: month name
+\def \printmonth[#1]{
+	% Pictures
+	\newpage
+	\thispagestyle{empty}
+	\includepdf{pics/#1.pdf}
+
+	\newpage
+	\thispagestyle{empty}
+
+	% Background with lines from pdf
+	\BgThispage
+
+	% List of weekdays
+	\begin{table}
+	\large
+	\color{gray}
+	\begin{tabular}{P{\cw}P{\cw}P{\cw}P{\cw}P{\cw}P{\cw}P{\cw}}
+	\vars{Monday} & \vars{Tuesday} & \vars{Wednesday} & \vars{Thursday} 
+	& \vars{Friday} & \vars{Saturday} & \vars{Sunday}  \\
+	\end{tabular}
+	\end{table}
+	\noindent\vspace{-0.63cm}
+
+	% Main calendar with days
+	\noindent\csvreader[tabular=p{\cw}p{\cw}p{\cw}p{\cw}p{\cw}p{\cw}p{\cw},
+	    late after line=\\\rule{0cm}{\rh},before reading=\Days]%
+	{tables/#1.csv}{mon=\mon,tue=\tue,wed=\wed,thu=\thu,fri=\fri,sat=\sat,sun=\sun}%
+	{\mon & \tue & \wed & \thu & \fri & \sat & \sun}
+	\noindent\vspace{-0.57cm}
+
+	% Name of month and year	
+	\vspace{-1.18cm}
+	\noindent\hfill\Month \vars{#1} \vars{Year}
+	}
+
+%% ---------------------------------------------
+% Title page
+\thispagestyle{empty}
+\includepdf[pagecommand={
+	\begin{tikzpicture}[remember picture, overlay]
+		% Title page labels
+		\node [anchor=west] at (0.8,-14.57) {\Month \vars{Year}};
+		\node [anchor=west] at (0.8,-15.8) {\Large \@title};
+	\end{tikzpicture}
+}]{pics/Title.pdf}
+
+% Print months
+\printmonth[January]
+\printmonth[February]
+\printmonth[March]
+\printmonth[April]
+\printmonth[May]
+\printmonth[June]
+\printmonth[July]
+\printmonth[August]
+\printmonth[September]
+\printmonth[October]
+\printmonth[November]
+\printmonth[December]
+
+\makeatother
+\end{document}
