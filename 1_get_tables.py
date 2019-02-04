@@ -28,6 +28,10 @@ weekdaynames = ['Luns',
 # Folder for table files
 dpath = os.path.join(os.getcwd(),'tables')
 
+# Create data folder
+if not os.path.exists(dpath):
+    os.makedirs(dpath)
+
 # Save variables
 varfname = os.path.join(dpath,'Variables.txt')
 print('Year: %i\nWriting ...' %year)
