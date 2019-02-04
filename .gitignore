@@ -1,0 +1,5 @@
+# Log and aux files
+*.log
+*.aux
+*.gz
+
