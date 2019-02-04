@@ -3,3 +3,5 @@
 *.aux
 *.gz
 
+# Mac meta file
+.DS_Store
