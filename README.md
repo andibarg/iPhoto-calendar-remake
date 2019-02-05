@@ -11,7 +11,7 @@ $ cd iPhoto-calendar-remake
 
 ### Usage
 
-The python script '1_get_tables.py' creates csv files in '/tables' which include tables of the days in each month for a given year. Specify the year in the script, as well as the names of the months and weekdays in your language as displayed on the calendar. These will be saved in the file 'Variables.txt'.
+The python script '1_get_tables.py' creates csv files including the days of each month for a given year in '/tables'. Specify the year in the script, as well as the names of the months and weekdays in your language as displayed on the calendar. These will be saved in the file 'Variables.txt'.
 
 In the preamble of the TeX script '2_create_calendar.tex' you can choose a title to be shown on the first page. Photo collages for each month are imported as PDFs found in '/pics'. Use a graphics editor of your choice to include your personal photos in each of the PDFs.
 
