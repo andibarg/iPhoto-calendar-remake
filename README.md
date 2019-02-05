@@ -15,6 +15,9 @@ The python script '1_get_tables.py' creates csv files in '/tables' which include
 
 In the preamble of the TeX script '2_create_calendar.tex' you can choose a title to be shown on the first page. Photo collages for each month are imported as PDFs found in '/pics'. Use a graphics editor of your choice to include your personal photos in each of the PDFs.
 
+Here is what the calendar looks like:
+![Screenshot](pics/example_pages.png)
+
 ### Suggestions for improvements
 
  - The calendar has been rescaled to 270mm x 210mm to fit on a4 paper, reducing the cost of printing. There should be a possibility to choose the original size of 330mm x 250mm.
