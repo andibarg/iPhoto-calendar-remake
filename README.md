@@ -15,7 +15,7 @@ The python script '1_get_tables.py' creates csv files including the days of each
 
 In the preamble of the TeX script '2_create_calendar.tex' you can choose a title to be shown on the first page. Photo collages for each month are imported as PDFs found in '/pics'. Use a graphics editor of your choice to include your personal photos in each of the PDFs.
 
-Here is what the calendar looks like:
+Here is what the output ('2_create_calendar.pdf') looks like for the month of January in 2020:
 ![Screenshot](pics/example_pages.png)
 
 ### Suggestions for improvements
