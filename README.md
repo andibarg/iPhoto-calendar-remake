@@ -1,6 +1,6 @@
 # iPhoto-calendar-remake
 
-For those who miss the good old photo calendar from the iPhoto/Photos app print service. The latter has been discontinued by Apple in September 2018. This repository includes the tools to remake my favourite version of the photo calendar (with 2-3 pictures per month) using python and TeX. 
+For those who miss the good old photo calendar from the iPhoto/Photos app print service. The latter has been discontinued by Apple in September 2018. This repository includes the tools to remake my favourite version of the photo calendar (collages with 2-3 pictures per month) using python and TeX. 
 
 
 ### Installation
