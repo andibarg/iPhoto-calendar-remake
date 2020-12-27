@@ -23,7 +23,6 @@ Here is what the output ('2_create_calendar.pdf') may look like for the month of
 
  - The calendar has been rescaled to 270mm x 210mm to fit on a4 paper, reducing the cost of printing. There should be a possibility to choose the original size of 330mm x 250mm.
  - The view of the previous and next month on the bottom left is not included and could be added as an option.
- - Custom text below each photo collage.
  - Add more calendar themes.
  
 
