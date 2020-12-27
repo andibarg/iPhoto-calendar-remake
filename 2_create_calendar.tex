@@ -2,7 +2,7 @@
 
 %% ---------------------------------------------
 % User input
-\title{Insert a subtitle or author name}
+\title{\vars{Title}}
 
 %% ---------------------------------------------
 % Layout
@@ -73,7 +73,12 @@ contents={%
 	% Pictures
 	\newpage
 	\thispagestyle{empty}
-	\includepdf{pics/#1.pdf}
+	\includepdf[pagecommand={
+		\begin{tikzpicture}[remember picture, overlay]
+			% Location label
+			\node [anchor=east] at (22.45,-16.7) {\normalsize \vars{#1 caption}};
+		\end{tikzpicture}
+		}]{pics/#1.pdf}
 
 	\newpage
 	\thispagestyle{empty}

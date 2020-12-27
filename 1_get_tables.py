@@ -4,18 +4,20 @@ import calendar
 # User input
 year = 2020
 
-monthnames = ['xaneiro',
-              'febreiro',
-              'marzo',
-              'abril',
-              'maio',
-              'xuño',
-              'xullo',
-              'agosto',
-              'setembro',
-              'outubro',
-              'novembro',
-              'decembro']
+title = 'Insert a subtitle or author name'
+
+monthnames = ['Xaneiro',
+              'Febreiro',
+              'Marzo',
+              'Abril',
+              'Maio',
+              'Xuño',
+              'Xullo',
+              'Agosto',
+              'Setembro',
+              'Outubro',
+              'Novembro',
+              'Decembro']
 
 weekdaynames = ['Luns',
               'Martes',
@@ -38,10 +40,13 @@ print('Year: %i\nWriting ...' %year)
 print(os.path.basename(varfname))
 with open(varfname , 'w') as f:
     f.write('Year = %s\n' %year)
+    f.write('Title = %s\n' %title)
     for m in range(len(monthnames)):
         f.write('%s = %s\n' %(calendar.month_name[m+1],monthnames[m]))
     for m in range(len(weekdaynames)):
         f.write('%s = %s\n' %(calendar.day_name[m],weekdaynames[m]))
+    for m in range(len(monthnames)):
+        f.write('%s caption = \empty\n' %calendar.month_name[m+1])
 
 # Loop through calendar
 cal = calendar.Calendar()
